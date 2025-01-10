@@ -1,38 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Nithya De Zoysa's Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        header { text-align: center; padding: 50px; }
-        section { margin: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thya's Portfolio</title>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Nithya De Zoysa's Portfolio</h1>
-    </header>
-    <section>
-        <h2>About Me</h2>
-        <p>3rd year Computer Science undergraduate at University of Ruhuna, Sri Lanka.</p>
-    </section>
-    <section>
-        <h2>Skills</h2>
-        <ul>
-            <li>Data Science</li>
-            <li>Full Stack Development</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1: Description of Project 1</li>
-            <li>Project 2: Description of Project 2</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Contact</h2>
-        <p>Email: nithyadezoysa@example.com</p>
-    </section>
+<body style="margin: 0; font-family: Arial, sans-serif; color: white; background-color: #121212;">
+
+  <!-- Header -->
+  <header style="position: sticky; top: 0; background-color: #1e1e1e; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: 100;">
+    <nav style="display: flex; justify-content: space-between; align-items: center;">
+      <h1 style="font-size: 24px; font-weight: bold;">Thya's Portfolio</h1>
+      <ul style="display: flex; list-style: none; padding: 0; margin: 0;">
+        <li style="margin-left: 20px;"><a href="#about" style="text-decoration: none; color: white; font-size: 16px;">About</a></li>
+        <li style="margin-left: 20px;"><a href="#projects" style="text-decoration: none; color: white; font-size: 16px;">Projects</a></li>
+        <li style="margin-left: 20px;"><a href="#skills" style="text-decoration: none; color: white; font-size: 16px;">Skills</a></li>
+        <li style="margin-left: 20px;"><a href="#contact" style="text-decoration: none; color: white; font-size: 16px;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(to right, #6a11cb, #2575fc);">
+    <h1 style="font-size: 48px; font-weight: bold; text-align: center;">Hi, I'm Thya</h1>
+    <p style="font-size: 20px; margin-top: 10px; text-align: center;">A passionate developer building modern web experiences</p>
+    <a href="#projects" style="margin-top: 20px; padding: 10px 20px; background-color: white; color: #121212; font-weight: bold; text-decoration: none; border-radius: 5px;">View My Work</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" style="padding: 50px 20px; text-align: center;">
+    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">About Me</h2>
+    <p style="font-size: 18px; max-width: 600px; margin: 0 auto;">I'm a creative developer with a passion for building interactive and dynamic web applications. With a strong foundation in programming and design, I aim to deliver seamless digital experiences.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" style="padding: 50px 20px; text-align: center; background-color: #1e1e1e;">
+    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">Projects</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+      <div style="width: 300px; padding: 20px; background-color: #292929; border-radius: 10px; text-align: left;">
+        <h3 style="font-size: 24px; font-weight: bold;">Project 1</h3>
+        <p style="margin: 10px 0;">A brief description of the project. Showcase its features and importance.</p>
+        <a href="#" style="color: #6a11cb; text-decoration: none; font-weight: bold;">View Project</a>
+      </div>
+      <div style="width: 300px; padding: 20px; background-color: #292929; border-radius: 10px; text-align: left;">
+        <h3 style="font-size: 24px; font-weight: bold;">Project 2</h3>
+        <p style="margin: 10px 0;">A brief description of the project. Showcase its features and importance.</p>
+        <a href="#" style="color: #6a11cb; text-decoration: none; font-weight: bold;">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="padding: 50px 20px; text-align: center;">
+    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">Skills</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+      <div style="padding: 10px 20px; background-color: #6a11cb; border-radius: 5px;">HTML</div>
+      <div style="padding: 10px 20px; background-color: #6a11cb; border-radius: 5px;">CSS</div>
+      <div style="padding: 10px 20px; background-color: #6a11cb; border-radius: 5px;">JavaScript</div>
+      <div style="padding: 10px 20px; background-color: #6a11cb; border-radius: 5px;">React</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="padding: 50px 20px; text-align: center; background-color: #1e1e1e;">
+    <h2 style="font-size: 32px; font-weight: bold; margin-bottom: 20px;">Contact Me</h2>
+    <p style="font-size: 18px; margin-bottom: 20px;">Feel free to reach out via email or connect with me on social media!</p>
+    <a href="mailto:dnithyamaheshi@gmail.com" style="padding: 10px 20px; background-color: #6a11cb; color: white; text-decoration: none; border-radius: 5px;">Email Me</a>
+  </section>
+
 </body>
 </html>
