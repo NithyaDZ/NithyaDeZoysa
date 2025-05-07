@@ -640,12 +640,7 @@
         <div class="typewriter-container">
           <p class="typewriter">Computer Science Undergraduate </p>
         </div>
-        <div class="typewriter-container">
-          <p class="typewriter">Software Engineer </p>
-        </div>
-        <div class="typewriter-container">
-          <p class="typewriter">Quality Assurance Engineer</p>
-        </div>
+        
         <a href="#contact" class="btn btn-primary">Available for Internship</a>
       </div>
     </div>
@@ -972,8 +967,6 @@
     });
 
     // Typewriter effect for job roles
-   // const typewriterText = "Computer Science Undergraduate";
-    //const typewriterElement = document.querySelector('.typewriter');
     const texts = [
   "Computer Science Undergraduate",
   "Software Engineer",
@@ -982,45 +975,36 @@
 
 let index = 0;
 let charIndex = 0;
-let currentText = '';
 let isDeleting = false;
 const typewriterElement = document.querySelector('.typewriter');
 
 function type() {
-  currentText = texts[index];
+  const currentText = texts[index];
 
   if (isDeleting) {
-    typewriterElement.textContent = currentText.substring(0, charIndex--);
+    charIndex--;
+    typewriterElement.textContent = currentText.substring(0, charIndex);
   } else {
-    typewriterElement.textContent = currentText.substring(0, charIndex++);
+    charIndex++;
+    typewriterElement.textContent = currentText.substring(0, charIndex);
   }
+
+  let typingSpeed = isDeleting ? 50 : 100;
 
   if (!isDeleting && charIndex === currentText.length) {
+    typingSpeed = 1500; // Pause before deleting
     isDeleting = true;
-    setTimeout(type, 1500); // Pause before deleting
-    return;
-  }
-
-  if (isDeleting && charIndex === 0) {
+  } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
-    index = (index + 1) % texts.length; // Loop to next text
+    index = (index + 1) % texts.length; // Next text
+    typingSpeed = 500; // Pause before typing next
   }
 
-  setTimeout(type, isDeleting ? 50 : 100); // Speed
+  setTimeout(type, typingSpeed);
 }
 
 type();
 
-    
-    // Reset the typewriter element for animation
-    typewriterElement.textContent = '';
-    typewriterElement.style.width = '0';
-    
-    // Start typewriter effect after a short delay
-    setTimeout(() => {
-      typewriterElement.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
-      typewriterElement.textContent = typewriterText;
-    }, 1000);
 
     // Run animation check on scroll and on load
     window.addEventListener('scroll', animateOnScroll);
