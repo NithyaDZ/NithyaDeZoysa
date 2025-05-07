@@ -143,6 +143,27 @@
       animation: fadeInDown 1s ease;
     }
     
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      border-right: 2px solid white;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 1px;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+      height: 1.5em;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+    
     .hero-content p {
       font-size: 1.25rem;
       max-width: 600px;
@@ -244,7 +265,15 @@
       background-color: var(--gray);
       padding: 20px;
       border-radius: 10px;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .info-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease;
     }
     
     .info-card:hover {
@@ -284,6 +313,12 @@
       position: relative;
       width: 50%;
       box-sizing: border-box;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .timeline-item.animate {
+      opacity: 1;
     }
     
     .timeline-item::after {
@@ -348,6 +383,14 @@
       overflow: hidden;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .project-card.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease;
     }
     
     .project-card:hover {
@@ -406,6 +449,14 @@
       background-color: var(--gray);
       padding: 20px;
       border-radius: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .skill-category.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease;
     }
     
     .skill-category h3 {
@@ -446,6 +497,14 @@
     .contact-content {
       max-width: 600px;
       margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .contact-content.animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease;
     }
     
     .contact-content p {
@@ -578,7 +637,9 @@
       <div class="hero-content">
         <img src="Nithya.jpg" alt="Nithya De Zoysa" class="profile-img">
         <h1>Nithya De Zoysa</h1>
-        <p>Computer Science Undergraduate | Software Engineer & QA Internship Candidate</p>
+        <div class="typewriter-container">
+          <p class="typewriter">Computer Science Undergraduate | Software Engineer & QA Internship Candidate</p>
+        </div>
         <a href="#contact" class="btn btn-primary">Available for Internship</a>
       </div>
     </div>
@@ -869,6 +930,51 @@
         }
       });
     });
+
+    // Scroll animation for elements
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.info-card, .project-card, .skill-category, .contact-content, .timeline-item');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate');
+        }
+      });
+    };
+
+    // Initialize timeline items with staggered animation
+    document.querySelectorAll('.timeline-item').forEach((item, index) => {
+      setTimeout(() => {
+        const elementPosition = item.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          item.classList.add('animate');
+        }
+      }, index * 200);
+    });
+
+    // Typewriter effect for job roles
+    const typewriterText = "Computer Science Undergraduate | Software Engineer & QA Internship Candidate";
+    const typewriterElement = document.querySelector('.typewriter');
+    
+    // Reset the typewriter element for animation
+    typewriterElement.textContent = '';
+    typewriterElement.style.width = '0';
+    
+    // Start typewriter effect after a short delay
+    setTimeout(() => {
+      typewriterElement.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
+      typewriterElement.textContent = typewriterText;
+    }, 1000);
+
+    // Run animation check on scroll and on load
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    animateOnScroll(); // Initial check
   </script>
 </body>
 </html>
