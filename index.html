@@ -972,8 +972,45 @@
     });
 
     // Typewriter effect for job roles
-    const typewriterText = "Computer Science Undergraduate | Software Engineer & QA Internship Candidate";
-    const typewriterElement = document.querySelector('.typewriter');
+   // const typewriterText = "Computer Science Undergraduate";
+    //const typewriterElement = document.querySelector('.typewriter');
+    const texts = [
+  "Computer Science Undergraduate",
+  "Software Engineer",
+  "Quality Assurance Engineer"
+];
+
+let index = 0;
+let charIndex = 0;
+let currentText = '';
+let isDeleting = false;
+const typewriterElement = document.querySelector('.typewriter');
+
+function type() {
+  currentText = texts[index];
+
+  if (isDeleting) {
+    typewriterElement.textContent = currentText.substring(0, charIndex--);
+  } else {
+    typewriterElement.textContent = currentText.substring(0, charIndex++);
+  }
+
+  if (!isDeleting && charIndex === currentText.length) {
+    isDeleting = true;
+    setTimeout(type, 1500); // Pause before deleting
+    return;
+  }
+
+  if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    index = (index + 1) % texts.length; // Loop to next text
+  }
+
+  setTimeout(type, isDeleting ? 50 : 100); // Speed
+}
+
+type();
+
     
     // Reset the typewriter element for animation
     typewriterElement.textContent = '';
